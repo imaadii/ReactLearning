@@ -1,17 +1,36 @@
+import React from 'react'
+
+
+const data = [
+  {
+    id: 1,
+    name: 'John Doe'
+  },
+  {
+    id: 2,
+    name: 'Jane Smith'
+  },
+  {
+    id: 3,
+    name: 'Mike Johnson'
+  }
+]
+
+
 const App = () => {
-  let count = 0;
-
-  const increase = () => {
-    count++;
-    console.log(count);
-  };
-
   return (
-    <>
-      <h1>{count}</h1>
-      <button onClick={increase}>Increase</button>
-    </>
-  );
-};
+    <div>
+      <h1>User List</h1>
 
-export default App;
+      <ul>
+        {
+          data.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))
+        }
+      </ul>
+    </div>
+  )
+}
+
+export default App
