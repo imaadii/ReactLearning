@@ -1,16 +1,9 @@
- 
+const Greeting = ({timeofDay}) => {
+  return (
+    <>
+      {timeofDay === "morning" ? <p>Good Morning</p> : timeofDay === "afternoon" ? <p>Good Afternoon</p> : <p>Good Evening</p>}
+    </>
+  );
+};
 
-const greet = "Hello, welcome to our application!";
-const time = new Date().toLocaleTimeString();
-
-
-const Greeting = () => {
-    return (
-        <div>
-            <h1>{greet}</h1>
-            <p>{time}</p>
-        </div>
-    )
-}
-
-export default Greeting
+export default Greeting;

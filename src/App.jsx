@@ -1,15 +1,16 @@
+import IconComponent from "./components/IconComponent";
+import ProfileCard from "./components/ProfileCard";
+import StyleCard from "./components/StyleCard";
+
 const App = () => {
-  let count = 0;
-
-  const increase = () => {
-    count++;
-    console.log(count);
-  };
-
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={increase}>Increase</button>
+      <IconComponent />
+      <br />
+      <br />
+      <StyleCard />
+      <br />
+      <ProfileCard />
     </>
   );
 };
