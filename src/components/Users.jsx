@@ -4,13 +4,32 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const URL = "https://jsonplaceholder.typicode.com/users";
+
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setUsers(data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchUsers = async function () {
+      try {
+        const response = await fetch(URL);
+
+        const data = await response.json();
+
         setUsers(data);
         setLoading(false);
-      });
+      } catch (error) {
+        console.log(console.log(error));
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   if (loading) {
