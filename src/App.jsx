@@ -1,19 +1,20 @@
 import { useState } from "react";
-import Card from "./components/Card";
+import Dashboard from "./components/Dashboard";
 import UserContext from "./components/UserContext";
-import UpdateUser from "./components/UpdateUser";
 
 const App = () => {
-
-  const [user, setUser] = useState("Guest");
-  const [age, setAge] = useState(0);
-
+  const [user, setUser] = useState({
+    name: "Aditya",
+    email: "aditya@example.com",
+    age: 25,
+    city: "Bhind",
+    number: 9191919191,
+  });
 
   return (
-      <UserContext.Provider value={{user, age, setAge, setUser}}>
-        <Card />
-        <UpdateUser />
-      </UserContext.Provider>
+    <UserContext.Provider value = {{user, setUser}}>
+      <Dashboard />
+    </UserContext.Provider>
   );
 };
 
