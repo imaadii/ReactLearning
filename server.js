@@ -1,13 +1,27 @@
-console.log([] && [].length);
+function reducer(state, action) {
+  if (action.type === "increment") {
+    return {
+      ...state,
+      count: state.count + 1,
+    };
+  }
+  if (action.type === "decrement") {
+    return {
+      ...state,
+      count: state.count - 1,
+    };
+  }
+  return state;
+}
 
-console.log([1, 2] && [1, 2].length);
+const state = {
+  count: 1,
+};
 
-console.log(undefined && null.length);
+const action = {
+  type: "increment",
+};
 
-console.log(null?.length);
+const result = reducer(state, action);
 
-console.log(Boolean(undefined?.length));
-
-console.log(Boolean([].length));
-
-console.log(Boolean([1].length));
+console.log(result);
